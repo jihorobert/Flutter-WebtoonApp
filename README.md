@@ -1,6 +1,7 @@
 # toonflix
 
 A new Flutter project.
+Make a UI same with this site -> https://dribbble.com/shots/19858341-Finnancial-Mobile-IOS-App
 
 ## Getting Started
 
