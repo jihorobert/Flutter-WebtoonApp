@@ -1,15 +1,3 @@
 # toonflix
 
-statefulWidget uses StatefulWidget for interactive UI
-buildText project tells about 'BuildContext'
-
-## Getting Started
-
-
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Details about statefulWidget, BuildText and Life Cycle about widget.

@@ -45,13 +45,32 @@ class _AppState extends State<App> {
           ),
         ),
       ),
-      home: const Scaffold(
-        backgroundColor: Color(0xFFF4EDDB),
+      home: Scaffold(
+        backgroundColor: const Color(0xFFF4EDDB),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MyLargeTitle(),
+              const Text(
+                "Click Count",
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+              for (var i in numbers)
+                Text(
+                  "$i",
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              IconButton(
+                iconSize: 40,
+                onPressed: onClicked,
+                icon: const Icon(
+                  Icons.add_box_rounded,
+                ),
+              ),
             ],
           ),
         ),
