@@ -8,10 +8,11 @@ void main() {
   runApp(App()); // App()라는 클래스가 우리 앱의 시작점이라는 뜻(root라는뜻)
 }
 
+/// StatelessWidget : 그저 UI만 나타내줌
 class App extends StatelessWidget {
   const App({super.key});
 
-  /* 3개의 core widget 중 하나 (build 메소드를 꼭 만들어야됨) 
+  /* 3개의 core widget 중 하나 (build 메소드를 꼭 만들어야됨)
       StatelessWidget : 그냥 무언가를 화면에 띄워주는 역할 */
 
   /** 
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
     /* root이니까 material이나 Cupertino (애플 디자인 시스템들) 둘중 하나를 return 해야됨
         주로 Material은 구글, Cupertino는 ios. (Material이 나음) */
     return MaterialApp(
-      // MatterialApplicationWidget을 return
+      // MaterialApplicationWidget을 return
       /**
        * MaterialApp위에 마우스 올려놓으면 'Widget home' 뜸
        * 나머지도 마찬가지
@@ -49,7 +50,7 @@ class App extends StatelessWidget {
                 ),
                 Row(
                   /**
-                  * Row에서의 'mainAxisalignment'는 수평방향, 'crossAxis~'는 수직. (Colomn은 그 반대)
+                  * Row에서의 'mainAxisalignment'는 수평방향, 'crossAxis~'는 수직. (Column은 그 반대)
                   */
                   mainAxisAlignment: MainAxisAlignment
                       .end, // Row에서의 'mainAxisalignment'는 수평방향 조종 (Column은 수직)
