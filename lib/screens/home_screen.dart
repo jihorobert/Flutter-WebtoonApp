@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,6 +9,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int totalSeconds = 1500;
+  late Timer timer;
+
+  void onTick(Timer timer) {
+    // 밑에 periodic은 인자로 Timer을 받아야하므로
+    setState(() {
+      totalSeconds -= 1;
+    });
+  }
+
+  void onStartPressed() {
+    /**
+     * Duration동안에 (timer) {} 의 함수가 실행됨.
+     */
+    timer = Timer.periodic(
+      const Duration(seconds: 1),
+      onTick, // 여기는 () 넣지않음. ()를 넣으면 바로 실행한다는 의미. Timer가 매초마다 괄호를 넣어서 실행해줌.
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                "25:00",
+                "$totalSeconds",
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
@@ -37,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: IconButton(
                 iconSize: 120,
                 color: Theme.of(context).cardColor,
-                onPressed: () {},
+                onPressed: onStartPressed,
                 icon: const Icon(
                   Icons.play_circle_fill_outlined,
                 ),
@@ -51,7 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   // 맨밑의 container 맨 오른쪽까지 expand 시켜줌
                   child: Container(
-                    color: Theme.of(context).cardColor,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).cardColor,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
